@@ -9,7 +9,7 @@
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="#home">مرکز خدمات</a>
+    <a class="brand" href="#home" id="brandName">مرکز خدمات</a>
     <button class="menu-toggle" aria-label="باز کردن فهرست" aria-expanded="false">☰</button>
     <nav class="nav" aria-label="فهرست اصلی">
       <a href="#home">خانه</a>
@@ -17,6 +17,7 @@
       <a href="#services">خدمات</a>
       <a href="#cities">مناطق تحت پوشش</a>
       <a href="#contact">تماس با ما</a>
+      <button class="nav-admin" id="openAdmin">ورود مدیریت</button>
     </nav>
     <a class="header-phone" href="tel:09000000000">۰۹۰۰ ۰۰۰ ۰۰۰۰</a>
   </header>
@@ -26,8 +27,8 @@
       <div class="hero-shade"></div>
       <div class="hero-content">
         <span class="eyebrow">پاسخگویی و همراهی</span>
-        <h1>خدمات موردنیازتان،<br>با راهنمایی روشن و آسان</h1>
-        <p>با ما آشنا شوید و برای دریافت اطلاعات بیشتر، از راه‌های ارتباطی استفاده کنید.</p>
+        <h1 id="heroTitle">خدمات موردنیازتان،<br>با راهنمایی روشن و آسان</h1>
+        <p id="heroDescription">با ما آشنا شوید و برای دریافت اطلاعات بیشتر، از راه‌های ارتباطی استفاده کنید.</p>
         <a class="button" href="#contact">☎ تماس با ما</a>
       </div>
       <a class="scroll-hint" href="#about">بیشتر بدانید ↓</a>
@@ -65,6 +66,34 @@
   </main>
 
   <footer><span>© تمامی حقوق محفوظ است.</span><a href="#home">بازگشت به بالا ↑</a></footer>
+
+  <div class="modal-backdrop" id="adminModal" hidden>
+    <section class="admin-box" role="dialog" aria-modal="true" aria-labelledby="adminHeading">
+      <button class="close-admin" id="closeAdmin" aria-label="بستن">×</button>
+      <div id="loginView">
+        <div class="section-mark">مدیریت سایت</div>
+        <h2 id="adminHeading">ورود به پنل مدیریت</h2>
+        <p class="admin-warning">این پنل فقط نمایشی و محلی است؛ برای ورود امن واقعی و تغییر سایت برای همه بازدیدکنندگان، باید سرور و سیستم احراز هویت راه‌اندازی شود.</p>
+        <label for="adminPassword">رمز آزمایشی</label>
+        <input id="adminPassword" type="password" autocomplete="current-password" placeholder="رمز آزمایشی را وارد کنید">
+        <button class="button full-button" id="loginButton">ورود</button>
+        <p class="form-message" id="loginMessage" aria-live="polite"></p>
+      </div>
+      <div id="editorView" hidden>
+        <div class="section-mark">ویرایش محلی</div>
+        <h2>تنظیم عنوان سایت</h2>
+        <label for="siteTitleInput">نام سایت</label>
+        <input id="siteTitleInput" type="text" maxlength="70" placeholder="نام جدید سایت">
+        <label for="heroTitleInput">عنوان بزرگ صفحه اصلی</label>
+        <input id="heroTitleInput" type="text" maxlength="120" placeholder="عنوان صفحه اصلی">
+        <label for="heroDescInput">توضیح کوتاه صفحه اصلی</label>
+        <textarea id="heroDescInput" rows="3" maxlength="250" placeholder="توضیح کوتاه"></textarea>
+        <button class="button full-button" id="saveChanges">ذخیره در همین مرورگر</button>
+        <button class="logout-button" id="logoutButton">خروج از پنل</button>
+        <p class="form-message" id="saveMessage" aria-live="polite"></p>
+      </div>
+    </section>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
